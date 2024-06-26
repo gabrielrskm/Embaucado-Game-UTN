@@ -1,12 +1,16 @@
 #include <iostream>
 #include <windows.h>
-#include <array>
 #include <conio.h>
 #include "./include/introduction.h"
+#include "./include/credits.h"
 #include "./include/game.h"
+#include "./include/stage.h"
+#include <locale>
 
+using namespace std;
 
-void game(string score[]){
+void initGame(string score[]){
+
    system("cls");
    string player1, player2;
    int pointP1[3] = {0,0,0};
@@ -17,8 +21,8 @@ void game(string score[]){
    firstTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    secondTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    thirdTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
-   showResult(player1, player2, pointP1, pointP2, discountP1,discountP2, score);
-   cout << "fin del juego, pulse enter para continuar";
+   showResult(player1, player2, pointP1, pointP2, discountP1,discountP2);
+   cout << "\n\nfin del juego, pulse enter para continuar";
    _getch();
 }
 
@@ -28,16 +32,26 @@ void stats(){
 
 void credits(){
    system("cls");
+   showCredits();
 }
 
 int main()
 {
-   SetConsoleOutputCP(CP_UTF8);
-   system("cls");
+   //set the console to show the special characters
+   SetConsoleOutputCP(65001);
+
+   //set random seed
+   srand(time(NULL));
+
+   //set array for visualization of score
    string score[100];
+   int sizeScore = 0;
+
+
+   system("cls");
    int option = introduction();
    while(option != 0){
-      if(option == 1)game(score);
+      if(option == 1)initGame(score);
       else if(option == 2)stats();
       else if(option == 3)credits();
       option = introduction();
