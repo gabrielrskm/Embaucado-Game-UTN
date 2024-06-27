@@ -44,7 +44,7 @@ void secondTurn(string &player1, string &player2, int p1[], int p2[], int subP1[
    if (sumP2 >= 20 && option != "s" && option != "S")
    {
       cout << player2 << " desea cambiar la carta Embaucadora ? (s/n) : ";
-      cin >> option;
+      getline(cin, option);
       if (option == "s" || option == "S")
       {
          subP2[0] = subP2[0] - 20;
@@ -97,7 +97,7 @@ void thirdTurn(string &player1, string &player2, int p1[], int p2[], int subP1[]
    if (sumP1 >= 20 && option != "s" && option != "S")
    {
       cout << player1 << " desea cambiar la carta Embaucadora ? (s/n) : ";
-      cin >> option;
+      getline(cin, option);
       if (option == "s" || option == "S")
       {
          subP1[1] = subP1[1] - 20;
