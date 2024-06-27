@@ -11,19 +11,25 @@ using namespace std;
 
 void initGame(string score[]){
 
-   system("cls");
+   //la funcion recibe el score para ir guardando el historial 
+   //de las partidas jugadas
+   //estructura de datos para el funcionamiento del juego
    string player1, player2;
    int pointP1[3] = {0,0,0};
    int pointP2[3] = {0,0,0};
    int discountP1[2] = {0,0};
    int discountP2[2] = {0,0};
-   getNames(player1, player2);
+
+   //funciones para cada etapa del juego
+   if(getNames(player1, player2) == -1){
+      return;
+   }
    firstTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    secondTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    thirdTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    showResult(player1, player2, pointP1, pointP2, discountP1,discountP2);
    cout << "\n\nfin del juego, pulse enter para continuar";
-   _getch();
+   _getch(); //permite esperar a la pulsacion de enter, propia de windows.h
 }
 
 void stats(){
@@ -37,18 +43,18 @@ void credits(){
 
 int main()
 {
-   //set the console to show the special characters
+   //instruccion que configura el formato utf-8 en la consola
+   //se intento con multiples codigos sin llegar a una solucion optima
+   //esta opcion muestra bien los caracteres especiales del programa pero 
+   //no puede mostra bien los caracteres especiales que introduce el usuario
    SetConsoleOutputCP(65001);
 
-   //set random seed
+   //semilla inicial para que la funcion rand pueda devolver valores aleatorios en cada llamada
    srand(time(NULL));
 
-   //set array for visualization of score
+   //array de datos para el guardado y visualicacion de ranking de puntos
    string score[100];
-   int sizeScore = 0;
 
-
-   system("cls");
    int option = introduction();
    while(option != 0){
       if(option == 1)initGame(score);
@@ -57,5 +63,6 @@ int main()
       option = introduction();
    }
    system("cls");
+   cout << "Gracias por probar nuestro juego, en caso le halla gustado contratenos : )";
    return 0;
 }

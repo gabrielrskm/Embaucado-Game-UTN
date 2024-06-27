@@ -10,7 +10,7 @@
 
 using namespace std;
 
-// the cards are represented by the following concept
+// Las cartas seran representadas bajo el siguiente concepto
 // heart: 10 = 0 , jack = 1, queen = 2, king = 3, ace = 4
 // spades: 10 = 5 , jack = 6, queen = 7, king = 8, ace = 9
 // clubs: 10 = 10 , jack = 11, queen = 12, king = 13, ace = 14
@@ -19,6 +19,8 @@ using namespace std;
 
 void sumPoints(int &p1, int &p2, int deck[], int specialDeck)
 {
+   //en esta funcion se suman los puntajes de la partida y se asignan a la posicion de memoria dentro del array
+   //correspondiente a cada jugador
    int points[20] = {10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20};
    for (int i = 0; i < 5; i++)
    {
@@ -44,7 +46,7 @@ void shuffleCards(int deck[], int &specialDeck)
       value = -1;
       do
       {
-         randNum = std::rand() % 20;
+         randNum = rand() % 20;
          value = sortDek[randNum];
       } while (value < 0);
 
@@ -58,30 +60,36 @@ void shuffleCards(int deck[], int &specialDeck)
    specialDeck = rand() % 4;
 }
 
-void getNames(string &player1, string &player2)
+int getNames(string &player1, string &player2)
 {
    string intro = R"(Antes de comenzar deben registrar sus nombres:)";
-   cout << title()<< intro << endl;
-   char option;
+   string option;
+   system("cls");
    do
    {
-      cin.clear();
-      wcout << endl
-           << "¿Nombre del Jugador 1 : ";
-      cin >> player1;
-      cout << endl
-           << "¿Nombre del Jugador 2 : ";
-      cin >> player2;
-      cout << endl
-           << "Confirma nombres ? (s/n) ";
-      cin >> option;
-      if (option != 's' && option != 'S' && option != 'n' && option != 'N')
+      cout << title()<< intro << endl;
+      cout << "\n¿Nombre del Jugador 1 : ";
+      getline(cin,player1);
+      cout << "\n¿Nombre del Jugador 2 : ";
+      getline(cin,player2);
+      cout << "\nConfirma nombres ? (s/n) ";
+      getline(cin,option);
+
+      //da la opcion de salir porque pinto
+      if(option == "salir" || option == "Salir")
+      {
+         return -1;
+      }
+      if (option != "s" && option != "S" && option != "n" && option != "N")
       {
          system("cls");
          cout << " Opcion Invalida, ingrese los datos nuevamente :" << endl;
       }
-   } while (option != 's' && option != 'S');
-
+      else if (option == "n" || option =="N"){
+         system("cls");
+      }
+   } while (option != "s" && option != "S");
+   return 0;
 }
 
 string showCard(int card)
@@ -98,6 +106,9 @@ string showCard(int card)
 
 void showSumPoints(int deck[], int specialDeck, string &sum1, string &sum2)
 {
+   //es similar a la funcion sumPoints, se decidio aplicar el mismo codigo por mas que sea repetitivo
+   //o sea se podia implementar todo en la anterior funcion pero asi teniamos separado las funciones de cada
+   //funcion ( valga la redundancia )
    int points[20] = {10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20};
    int card = specialDeck - 20;
    for (int i = 0; i < 5; i++)

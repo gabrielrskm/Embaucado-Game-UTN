@@ -15,22 +15,22 @@ int introduction()
                   0 - SALIR 
 -- -- -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- -- -- -- --
                OPCION ELEGIDA: )";
-   int option;
+   string option;
    system("cls");
    cout << title();
-   cout  << intro;   
-   cin >> option;
-   if (option == 0)
+   cout  << intro;
+   //se decidio usar getline ya que permite un metodo de validacion en caso que el usuario introduzca 
+   //un valor erroneo, cuando se usaba cin quedaba abierta la posibilidad de romper la visual del programa
+   //en caso de elegir un valor de mas de un caracter   
+   getline(cin,option);
+   if (option == "0")
       return 0;
-   else if (option == 1)
+   else if (option == "1")
       return 1;
-   else if (option == 2)
+   else if (option == "2")
       return 2;
-   else if (option == 3)
+   else if (option == "3")
       return 3;
    else
-   {
-      cout << "Opción incorrecta" << endl;
-      return 0;
-   }
+      return -1;
 }
