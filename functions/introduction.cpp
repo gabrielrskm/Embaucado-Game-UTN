@@ -1,5 +1,4 @@
-#include "../include/introduction.h"
-#include "../include/title.h"
+#include "../include/functions.h"
 
 using namespace std;
 

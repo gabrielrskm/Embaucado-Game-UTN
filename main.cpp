@@ -1,15 +1,10 @@
 #include <iostream>
 #include <windows.h>
-#include <conio.h>
-#include "./include/introduction.h"
-#include "./include/credits.h"
-#include "./include/game.h"
-#include "./include/stage.h"
-#include <locale>
+#include "./include/functions.h"
 
 using namespace std;
 
-void initGame(string score[]){
+void initGame(string nameScore[],int pointScore[]){
 
    //la funcion recibe el score para ir guardando el historial 
    //de las partidas jugadas
@@ -28,12 +23,14 @@ void initGame(string score[]){
    secondTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    thirdTurn(player1, player2, pointP1, pointP2,discountP1,discountP2);
    showResult(player1, player2, pointP1, pointP2, discountP1,discountP2);
+   calcScore(player1, player2, pointP1, pointP2, discountP1,discountP2,nameScore,pointScore);
    cout << "\n\nfin del juego, pulse enter para continuar";
    _getch(); //permite esperar a la pulsacion de enter, propia de windows.h
 }
 
-void stats(){
+void stats(string nameScore[],int pointScore[]){
    system("cls");
+   showScore(nameScore,pointScore);
 }
 
 void credits(){
@@ -54,15 +51,19 @@ int main()
 
    //array de datos para el guardado y visualicacion de ranking de puntos
    string score[100];
+   int pointScore[100];
+   string nameScore[100];
+   initScore(nameScore,pointScore);
 
    int option = introduction();
    while(option != 0){
-      if(option == 1)initGame(score);
-      else if(option == 2)stats();
+      if(option == 1)initGame(nameScore,pointScore);
+      else if(option == 2)stats(nameScore,pointScore);
       else if(option == 3)credits();
       option = introduction();
    }
    system("cls");
    cout << "Gracias por probar nuestro juego, en caso le halla gustado contratenos : )";
+   Sleep(4000);
    return 0;
 }

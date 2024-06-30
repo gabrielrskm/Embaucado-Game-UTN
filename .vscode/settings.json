@@ -48,7 +48,8 @@
       "sstream": "cpp",
       "stdexcept": "cpp",
       "streambuf": "cpp",
-      "typeinfo": "cpp"
+      "typeinfo": "cpp",
+      "locale": "cpp"
    },
    "C_Cpp.intelliSenseEngineFallback": "enabled",
    "C_Cpp.default.compilerPath": "D:\\Programas\\MSYS2\\ucrt64\\bin\\gcc.exe"

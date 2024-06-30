@@ -1,5 +1,4 @@
- #include "../include/stage.h"
- #include "../include/game.h"
+#include "../include/functions.h"
 
 void firstTurn(string &player1, string &player2, int p1[], int p2[], int subP1[], int subP2[])
 {
@@ -30,7 +29,6 @@ void secondTurn(string &player1, string &player2, int p1[], int p2[], int subP1[
       if (option == "s" || option == "S")
       {
          subP1[0] = subP1[0] - 20;
-         specialDeck = rand() % 4;
          do
          {
             specialDeck = rand() % 4;

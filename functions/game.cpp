@@ -5,8 +5,7 @@
 #include <cstdlib>
 #include <array>
 #include <conio.h>
-#include "../include/game.h"
-#include "../include/title.h"
+#include "../include/functions.h"
 
 using namespace std;
 
@@ -189,6 +188,7 @@ void showResult(string player1, string player2, int p1[], int p2[], int subP1[],
    int sum2 = p2[0] + p2[1] + p2[2] + subP2[0] + subP2[1];
    cout << "Total" << "\t" << sum1 << "\t" << sum2 << "\t" << endl;
 
+
    if (sum1 > sum2)
    {
       cout << "Ganador: " << player1 << endl;
@@ -211,4 +211,5 @@ void showResult(string player1, string player2, int p1[], int p2[], int subP1[],
          cout << "Empate" << endl;
       }
    }
+
 }
