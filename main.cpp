@@ -50,7 +50,6 @@ int main()
    srand(time(NULL));
 
    //array de datos para el guardado y visualicacion de ranking de puntos
-   string score[100];
    int pointScore[100];
    string nameScore[100];
    initScore(nameScore,pointScore);

@@ -2,7 +2,7 @@
    "version": "0.2.0",
    "configurations": [
        {
-           "name": "Launch",
+           "name": "Depuracion del programa",
            "type": "cppdbg",
            "request": "launch",
            "program": "${workspaceFolder}/main.exe",
@@ -11,8 +11,7 @@
            "cwd": "${workspaceFolder}",
            "environment": [],
            "externalConsole": true,
-           //"MIMode": "gdb",
-           //"miDebuggerPath": "D:/Programas/MSYS2/ucrt64/bin/gdb.exe",
+           "MIMode": "gdb",
            "setupCommands": [
                {
                    "description": "Enable pretty-printing for gdb",
@@ -20,8 +19,11 @@
                    "ignoreFailures": true
                }
            ],
-           "preLaunchTask": "build",
-           "internalConsoleOptions": "openOnSessionStart"
+           "preLaunchTask": "Compilar C++",
+           "logging": {
+               "engineLogging": true
+           },
+           "visualizerFile": "${workspaceFolder}/.vscode/gdb.visualizer"
        }
    ]
 }

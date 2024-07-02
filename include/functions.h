@@ -1,8 +1,6 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include <cstdlib>
-#include <array>
 #include <conio.h>
 
 using namespace std;
