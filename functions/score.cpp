@@ -14,8 +14,7 @@ void initScore(string nameScore[],int pointScore[]){
 }
 
 void addScore(string nameScore[],int pointScore[],string name, int points){
-   //añade de forma ordenada un score, supone que el array esta ordenado
-   cout << "entro joya" << endl;
+   //añade de forma ordenada el puntaje del ganador, supone que el vector esta ordenado
    for (int i = 0; i < 100; i++){
       if(points > pointScore[i]){
          for (int j = 100-1; j > i;j--){

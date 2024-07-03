@@ -3,7 +3,7 @@
 void firstTurn(string &player1, string &player2, int p1[], int p2[], int subP1[], int subP2[])
 {
    int deck[10];
-   int specialDeck = -1;
+   int specialDeck;
    shuffleCards(deck, specialDeck);
    showStage(player1, player2, deck, p1, p2, specialDeck, 1, subP1, subP2);
    sumPoints(p1[0], p2[0], deck, specialDeck);
@@ -15,7 +15,7 @@ void firstTurn(string &player1, string &player2, int p1[], int p2[], int subP1[]
 void secondTurn(string &player1, string &player2, int p1[], int p2[], int subP1[], int subP2[])
 {
    int deck[10];
-   int specialDeck = -1;
+   int specialDeck;
    shuffleCards(deck, specialDeck);
    showStage(player1, player2, deck, p1, p2, specialDeck, 2, subP1, subP2);
    string option = "n";
@@ -29,10 +29,10 @@ void secondTurn(string &player1, string &player2, int p1[], int p2[], int subP1[
       if (option == "s" || option == "S")
       {
          subP1[0] = subP1[0] - 20;
-         do
+         while (specialDeckPrevius == specialDeck)
          {
             specialDeck = rand() % 4;
-         } while (specialDeckPrevius == specialDeck);
+         }
          showStage(player1, player2, deck, p1, p2, specialDeck, 2, subP1, subP2);
       }
       else if(option != "n" && option != "N"){

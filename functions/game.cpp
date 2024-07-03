@@ -12,12 +12,13 @@ using namespace std;
 // spades: 10 = 5 , jack = 6, queen = 7, king = 8, ace = 9
 // clubs: 10 = 10 , jack = 11, queen = 12, king = 13, ace = 14
 // diamonds: 15 = 0 , jack = 16, queen = 17, king = 18, ace = 19
-// diamond-figure: 20, heart-figure: 21, spades-figure: 22, club-figure: 23
+//"Corazon ♥" = 20, "Pica ♠" = 21, "Trebol ♣"= 22, "Diamante ♦"=23
 
 void sumPoints(int &p1, int &p2, int deck[], int specialDeck)
 {
    //en esta funcion se suman los puntajes de la partida y se asignan a la posicion de memoria dentro del array
    //correspondiente a cada jugador
+   //                  corazon          |    trebol         |  pica             |       diamante
    int points[20] = {10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20, 10, 11, 12, 15, 20};
    for (int i = 0; i < 5; i++)
    {
@@ -132,8 +133,8 @@ void showStage(string player1, string player2, int deck[], int p1[], int p2[], i
    cout << title();
    cout << "Ronda #" << stage << endl;
    cout << "+-------------------------------+\n|\t\t\t\t|\n";
-   cout << "| " + player1 + " (" + to_string(pointP1) + " puntos)\t\t|\n";
-   for (int i = 0; i < 5; i++)
+   cout << "| " + player1 + " (" << pointP1 << " puntos)\t\t|\n";
+   for (int i = 0; i <= 4; i++)
    {
       cout << "| ";
       cout << " \t" << showCard(deck[i]) << "\t|" << endl;
@@ -143,7 +144,7 @@ void showStage(string player1, string player2, int deck[], int p1[], int p2[], i
    cout << "|\t\t\t\t|\n";
    cout << "| " + player2 + " (" + to_string(pointP2) + " puntos)\t\t|\n";
 
-   for (int i = 5; i < 10; i++)
+   for (int i = 5; i <= 9; i++)
    {
       cout << "| ";
       cout << " \t" << showCard(deck[i]) << "\t|" << endl;
@@ -161,7 +162,7 @@ void showPoints(string player1, string player2, int p1, int p2, int deck[], int 
    string sum1 = "";
    string sum2 = "";
    showSumPoints(deck, specialDeck, sum1, sum2);
-   cout << "Puntaje obtenido \n--------------------------------------------------------\n";
+   cout << "\nPuntaje obtenido \n--------------------------------------------------------\n";
    cout << player1 + ": " << sum1 << " = " << to_string(p1) << " puntos" << endl;
    cout << player2 + ": " << sum2 << " = " << to_string(p2) << " puntos" << endl;
 }

@@ -52,7 +52,9 @@ int main()
    //array de datos para el guardado y visualicacion de ranking de puntos
    int pointScore[100];
    string nameScore[100];
+
    initScore(nameScore,pointScore);
+
 
    int option = introduction();
    while(option != 0){
